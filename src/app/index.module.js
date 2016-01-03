@@ -11,7 +11,8 @@
       'ngAria',
       'restangular',
       'ngRoute',
-      'toastr'
+      'toastr',
+      'LocalStorageModule'
     ]);
 
 })();
