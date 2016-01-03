@@ -6,14 +6,25 @@
     .factory('apiService', apiService);
 
   /** @ngInject */
-  function apiService() {
-    var apiHost = 'https://api.github.com/repos/sergiy-talashko/survey_test_app/contents';
+  function apiService(Restangular, $q) {
+
+    var dataRestangular = Restangular.one('master/api-data.json');
 
     var service = {
-      apiHost: apiHost
+      getData: getData
     };
 
     return service;
+
+    function getData(){
+      return dataRestangular.get().then(function(resp){
+        console.log(resp);
+        return resp.data;
+      }).catch(function(){
+        alert('something wrong');
+        return $q.reject();
+      });
+    }
 
   }
 })();

@@ -3,10 +3,12 @@
 
   angular
     .module('surveyTestApp')
-    .config(config);
+    .config(toastrConfig)
+    .config(RestangularProviderConfig)
+    .config(localStorageConfig);
 
   /** @ngInject */
-  function config($logProvider, toastrConfig) {
+  function toastrConfig($logProvider, toastrConfig) {
     // Enable log
     $logProvider.debugEnabled(true);
 
@@ -16,6 +18,19 @@
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+  }
+
+  function RestangularProviderConfig(RestangularProvider, API_URL) {
+    RestangularProvider
+      .setBaseUrl(API_URL)
+      .setResponseExtractor(function(response) {
+        return response.data;
+      });
+  }
+
+  function localStorageConfig(localStorageServiceProvider) {
+    localStorageServiceProvider
+      .setPrefix('surveyTestApp');
   }
 
 })();

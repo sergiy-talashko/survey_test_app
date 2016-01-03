@@ -1,0 +1,65 @@
+{
+  "stages": [
+    {
+      "title": "Personal information",
+      "tab-title": "Stage 1",
+      "description": "Matic would like to give you the best product. This survey will take few seconds.",
+      "messages": [
+        {
+          "name": "name",
+          "message": "My name is ___",
+          "input": "String, length: 3­255"
+        },
+        {
+          "name": "email",
+          "message": "I’m using ___ email",
+          "input": "String, email valid"
+        },
+        {
+          "name": "phone",
+          "message": "And my phone number is ____",
+          "input": "Phone input, Valid US phone number, optional "
+        }
+      ]
+    },
+    {
+      "title": " Address",
+      "tab-title": "Stage 2",
+      "description": "We need your address to confirm our best offer",
+      "messages": [
+        {
+          "name": "country",
+          "message": "I live in ____",
+          "input": "Select with search, Country name"
+        },
+        {
+          "name": "zip",
+          "message": "My zip code is ____",
+          "input": "String, Valid zip code"
+        }
+      ]
+    },
+    {
+      "title": "General Information",
+      "tab-title": "Stage 3",
+      "description": "These answers provides deeper insights to craft something special",
+      "messages": [
+        {
+          "name": "income",
+          "message": "My family makes $____ per year",
+          "input": "Number bigger then 0"
+        },
+        {
+          "name": "familyMembers",
+          "message": "There is __ person in my tax household",
+          "input": "Select, numbers from 1 up to 10"
+        }
+      ]
+    }
+  ],
+  "finishMessage": "Thanks for your answers. We will get back to you within 24 hours with our amazing product"
+}
+
+
+
+
