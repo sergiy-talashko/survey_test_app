@@ -11,8 +11,8 @@
             "message": "My name is ____",
             "input": {
               "type": "text",
-              "min-length": "3",
-              "max-length": "3",
+              "minlength": "3",
+              "maxlength": "3",
               "required": true
             }
           },
