@@ -22,10 +22,7 @@
 
   function RestangularProviderConfig(RestangularProvider, API_URL) {
     RestangularProvider
-      .setBaseUrl(API_URL)
-      .setResponseExtractor(function(response) {
-        return response.data;
-      });
+      .setBaseUrl(API_URL);
   }
 
   function localStorageConfig(localStorageServiceProvider) {

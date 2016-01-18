@@ -1,22 +1,11 @@
 .container
-  div
-    acme-navbar(creation-date='main.creationDate')
-  .jumbotron
-    h1 'Allo, 'Allo!
-    p.lead
-      img(src='assets/images/yeoman.png', alt="I'm Yeoman")
-      br
-      |       Always a pleasure scaffolding your apps.
-    p(ng-class='main.classAnimation')
-      a.btn.btn-lg.btn-success(ng-click='main.showToastr()') Splendid Toastr
-    p
-      | With ♥ thanks to the contributions of
-      acme-malarkey(extra-values="['Yeoman', 'Gulp', 'Angular']")
-  .col(ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'")
-    .thumbnail
-      img.pull-right(ng-src='assets/images/{{ awesomeThing.logo }}', alt='{{ awesomeThing.title }}')
-      .caption
-        h3 {{ awesomeThing.title }}
-        p {{ awesomeThing.description }}
-        p
-          a(ng-href='{{ awesomeThing.url }}') {{ awesomeThing.url }}
+  .nav-block
+    div(ng-repeat="stage in main.surveyData.stages")
+      span(ng-bind="stage['tab-title']")
+  .nav-body
+    .title(ng-bind="main.activeStage.title")
+    .description(ng-bind="main.activeStage.description")
+    form(name="form")
+      div(messages,  ng-repeat="message in main.activeStage.messages")
+    input(type='text', ng-model="main.test2", ng-change="main.test()", pattern='')
+

@@ -3,57 +3,87 @@
     "stages": [
       {
         "title": "Personal information",
-        "tab-title": "Stage 1",
+        "tabTitle": "Stage 1",
         "description": "Matic would like to give you the best product. This survey will take few seconds.",
         "messages": [
           {
             "name": "name",
-            "message": "My name is ___",
-            "input": "String, length: 3­255"
+            "message": "My name is ____",
+            "input": {
+              "type": "text",
+              "min-length": "3",
+              "max-length": "3",
+              "required": true
+            }
           },
           {
             "name": "email",
-            "message": "I’m using ___ email",
-            "input": "String, email valid"
+            "message": "I’m using ____ email",
+            "input": {
+              "type": "email",
+              "required": true
+            }
           },
           {
             "name": "phone",
             "message": "And my phone number is ____",
-            "input": "Phone input, Valid US phone number, optional "
+            "input": {
+              "type": "text",
+              "pattern": "^\\(?([0-9]{3})\\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$",
+              "required": false
+            }
           }
         ]
       },
       {
         "title": " Address",
-        "tab-title": "Stage 2",
+        "tabTitle": "Stage 2",
         "description": "We need your address to confirm our best offer",
         "messages": [
           {
             "name": "country",
             "message": "I live in ____",
-            "input": "Select with search, Country name"
+            "input": {
+              "type": "select",
+              "format": "country",
+              "required": true
+            }
           },
           {
             "name": "zip",
             "message": "My zip code is ____",
-            "input": "String, Valid zip code"
+            "input": {
+              "type": "number",
+              "filter": "zip",
+              "required": true
+            }
           }
         ]
       },
       {
         "title": "General Information",
-        "tab-title": "Stage 3",
+        "tabTitle": "Stage 3",
         "description": "These answers provides deeper insights to craft something special",
         "messages": [
           {
             "name": "income",
             "message": "My family makes $____ per year",
-            "input": "Number bigger then 0"
+            "input": {
+              "type": "number",
+              "min": "0",
+              "required": true
+            }
           },
           {
             "name": "familyMembers",
-            "message": "There is __ person in my tax household",
-            "input": "Select, numbers from 1 up to 10"
+            "message": "There is ____ person in my tax household",
+            "input": {
+              "type": "select",
+              "format": "number",
+              "from": 1,
+              "to": 10,
+              "required": true
+            }
           }
         ]
       }

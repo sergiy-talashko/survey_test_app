@@ -18,7 +18,6 @@
 
     function getData(){
       return dataRestangular.get().then(function(resp){
-        console.log(resp);
         return resp.data;
       }).catch(function(){
         alert('something wrong');

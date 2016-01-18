@@ -10,7 +10,7 @@
       'ngMessages',
       'ngAria',
       'restangular',
-      'ngRoute',
+      'ui.router',
       'toastr',
       'LocalStorageModule'
     ]);

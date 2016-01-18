@@ -5,16 +5,15 @@
     .module('surveyTestApp')
     .config(routeConfig);
 
-  function routeConfig($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+  function routeConfig($stateProvider, $urlRouterProvider) {
+    $stateProvider.state("main", {
+      url: '/',
+      templateUrl: 'app/main/main.html',
+      controller: 'MainController',
+      controllerAs: 'main'
+    });
+
+    $urlRouterProvider.otherwise('/');
   }
 
 })();
