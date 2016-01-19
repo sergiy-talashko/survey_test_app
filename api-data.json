@@ -11,8 +11,8 @@
             "message": "My name is ____",
             "input": {
               "type": "text",
-              "minlength": 3,
-              "maxlength": 3,
+              "minlength": 1,
+              "maxlength": 30,
               "required": true
             }
           },
@@ -53,8 +53,7 @@
             "name": "zip",
             "message": "My zip code is ____",
             "input": {
-              "type": "number",
-              "filter": "zip",
+              "type": "zip",
               "required": true
             }
           }

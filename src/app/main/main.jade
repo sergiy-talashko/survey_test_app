@@ -2,10 +2,17 @@
   .nav-block
     div(ng-repeat="stage in main.surveyData.stages")
       span(ng-bind="stage['tab-title']")
-  .nav-body
+  .nav-body(ng-hide="main.finished")
     .title(ng-bind="main.activeStage.title")
     .description(ng-bind="main.activeStage.description")
-    form(name="form")
-      div(messages,  ng-repeat="message in main.activeStage.messages")
-    input(type='text', ng-model="main.test2", ng-change="main.test()", pattern='')
+    form(name="form", ng-submit="main.finishStage()")
+      div(ng-repeat="message in main.activeStage.messages")
+        div(messages)
+
+      br
+
+      button(type="submit", ng-disabled="form.$invalid") NEXT STAGE
+
+  .nav-body(ng-show="main.finished")
+    .title(ng-bind="main.surveyData.finishMessage")
 

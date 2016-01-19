@@ -6,10 +6,12 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(apiService) {
+  function MainController(apiService, COUNTRY_ARRAY) {
     var vm = this;
     vm.changeStage = changeStage;
-    vm.test = test;
+    vm.finishStage = finishStage;
+    vm.countries = COUNTRY_ARRAY;
+    vm.finished = false;
 
     init();
 
@@ -17,19 +19,25 @@
       apiService.getData().then(function(data){
         console.log(data);
         vm.surveyData = data;
-        changeStage(0);
+        vm.activeIndex = 0;
+        changeStage(vm.activeIndex);
       });
     }
 
     function changeStage(index) {
       vm.activeStage = vm.surveyData.stages[index];
-      console.log(vm.activeStage);
+      vm.answers = new Array(vm.activeStage.messages.length);
     }
 
-
-    function test(index) {
-      console.log(vm.test2);
+    function finishStage() {
+      console.log(vm.answers);
+      if (vm.activeIndex === vm.surveyData.stages.length - 1){
+        vm.finished = true;
+      }else{
+        changeStage(++vm.activeIndex);
+      }
     }
+
 
   }
 })();
